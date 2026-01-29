@@ -10,36 +10,14 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 LABEL maintainer="Edumotiv"
 
 # title
-ENV TITLE="debian-xfce"
+ENV TITLE="jaamsim image"
 
-RUN \
-  echo "**** add icon ****" && \
-  curl -o \
-    /usr/share/selkies/www/icon.png \
-    https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webtop-logo.png && \
-  echo "**** install packages ****" && \
-  apt-get -y install \
-    adw-gtk3 \
-    adwaita-xfce-icon-theme \
-    chromium \
-    mousepad \
-    ristretto \
-    thunar \
-    util-linux-misc \
-    xfce4 \
-    xfce4-terminal && \
-  echo "**** xfce-tweaks ****" && \
-  mv \
-    /usr/bin/thunar \
-    /usr/bin/thunar-real && \
-  echo "**** cleanup ****" && \
-  rm -f \
-    /etc/xdg/autostart/xfce4-power-manager.desktop \
-    /etc/xdg/autostart/xscreensaver.desktop \
-    /usr/share/xfce4/panel/plugins/power-manager-plugin.desktop && \
-  rm -rf \
-    /config/.cache \
-    /tmp/*
+RUN \ apt-get update && \
+mkdir -p /usr/share/man/man1 && \ 
+apt-get install -y --no-install-recommends default-jre wget unzip && \ 
+rm -rf /var/lib/apt/lists/* && \
+mkdir -p /apps && \
+wget -O /apps/jaamsim.jar "https://github.com/jaamsim/jaamsim/releases/download/v2025-10/JaamSim2025-10.jar"
 
 # add local files
 COPY /root /
