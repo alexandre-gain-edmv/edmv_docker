@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-selkies:debiantrixie
+FROM lscr.io/linuxserver/webtop:ubuntu-mate
 
 # set version label
 ARG BUILD_DATE
