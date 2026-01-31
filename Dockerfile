@@ -20,7 +20,7 @@ mkdir -p /apps && \
 wget -O /apps/jaamsim.jar "https://github.com/jaamsim/jaamsim/releases/download/v2025-10/JaamSim2025-10.jar"
 
 # add local files
-COPY /root /
+# COPY /root /
 
 # ports and volumes
 EXPOSE 3001
