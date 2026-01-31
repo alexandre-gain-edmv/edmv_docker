@@ -15,10 +15,13 @@ ENV TITLE="jaamsim image"
 RUN \ 
 mkdir -p /usr/share/man/man1 && \
 apt-get update && \
-apt-get -y install default-jre wget unzip && \ 
+apt-get -y install default-jre wget unzip git-all && \
+apt-get -y install libxrender1 libxtst6 libxi6 && \
 rm -rf /var/lib/apt/lists/* && \
 mkdir -p /apps && \
 wget -O /apps/jaamsim.jar "https://github.com/jaamsim/jaamsim/releases/download/v2025-10/JaamSim2025-10.jar"
+
+# RUN wget -q -O /apps/jaamsim_launcher.sh "https://raw.githubusercontent.com/alexandre-gain-edmv/edmv_docker/main/jaamsim_launcher.sh"
 
 # add local filesa
 # COPY /root /
@@ -27,3 +30,4 @@ wget -O /apps/jaamsim.jar "https://github.com/jaamsim/jaamsim/releases/download/
 EXPOSE 3001
 
 VOLUME /config
+VOLUME /apps
