@@ -15,7 +15,7 @@ ENV TITLE="jaamsim image"
 RUN \ 
 mkdir -p /usr/share/man/man1 && \
 apt-get update && \
-apt-get install default-jre wget unzip && \ 
+apt-get -y install default-jre wget unzip && \ 
 rm -rf /var/lib/apt/lists/* && \
 mkdir -p /apps && \
 wget -O /apps/jaamsim.jar "https://github.com/jaamsim/jaamsim/releases/download/v2025-10/JaamSim2025-10.jar"
