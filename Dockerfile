@@ -12,14 +12,15 @@ LABEL maintainer="Edumotiv"
 # title
 ENV TITLE="jaamsim image"
 
-RUN \ apt-get update && \
-mkdir -p /usr/share/man/man1 && \ 
-apt-get install -y --no-install-recommends default-jre wget unzip && \ 
+RUN \ 
+mkdir -p /usr/share/man/man1 && \
+apt-get update && \
+apt-get install default-jre wget unzip && \ 
 rm -rf /var/lib/apt/lists/* && \
 mkdir -p /apps && \
 wget -O /apps/jaamsim.jar "https://github.com/jaamsim/jaamsim/releases/download/v2025-10/JaamSim2025-10.jar"
 
-# add local files
+# add local filesa
 # COPY /root /
 
 # ports and volumes
